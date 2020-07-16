@@ -75,17 +75,17 @@ namespace DSS
         // csak debuggolás 
         public void Adatok()
         {
-            Console.WriteLine();
+            System.Diagnostics.Debug.WriteLine('\n');
             int i = 1;
             foreach (var item in gepek)
             {
-                Console.WriteLine("gep" + i);
+                System.Diagnostics.Debug.WriteLine("gep" + i);
                 i++;
                 foreach (var item2 in item.naplo)
                 {
-                    Console.Write(" " + item2);
+                    System.Diagnostics.Debug.Write(" " + item2);
                 }
-                Console.WriteLine();
+                System.Diagnostics.Debug.WriteLine('\n');
             }
         }
 

@@ -116,17 +116,17 @@ namespace DSS
         public void Kiir()
         {
 
-            Console.WriteLine("1---------------------------------1");
+            System.Diagnostics.Debug.WriteLine("1---------------------------------1");
             gcs1.Adatok();
-            Console.WriteLine("2---------------------------------2");
+            System.Diagnostics.Debug.WriteLine("2---------------------------------2");
             gcs2.Adatok();
-            Console.WriteLine("3---------------------------------3");
+            System.Diagnostics.Debug.WriteLine("3---------------------------------3");
             gcs3.Adatok();
-            Console.WriteLine("4---------------------------------4");
+            System.Diagnostics.Debug.WriteLine("4---------------------------------4");
             gcs4.Adatok();
-            Console.WriteLine("5---------------------------------5");
+            System.Diagnostics.Debug.WriteLine("5---------------------------------5");
             gcs5.Adatok();
-            Console.WriteLine("6---------------------------------6");
+            System.Diagnostics.Debug.WriteLine("6---------------------------------6");
             gcs6.Adatok();
         }
 

@@ -39,8 +39,6 @@
     <asp:FileUpload ID="FileUpload1" runat="server" accept=".csv" />
     <asp:Button ID="btnImport" runat="server" Text="Import" OnClick="ImportCSV" />
     <hr />
-    <asp:GridView ID="GridView1" runat="server">
-    </asp:GridView>
     </form>
 </body>
 </html>
