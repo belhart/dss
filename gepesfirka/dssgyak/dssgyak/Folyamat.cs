@@ -61,6 +61,52 @@ namespace dssgyak
 
         }
 
+        public void FB(int db)
+        {
+            gcs1 = GepCsoportMaker(8, 6, null);
+
+            gcs2 = GepCsoportMaker(16, 2, gcs1);
+
+            gcs3 = GepCsoportMaker(12, 3, gcs2);
+
+            gcs4 = GepCsoportMaker(5, 1, gcs3);
+
+            gcs5 = GepCsoportMaker(20, 4, gcs4);
+
+            gcs6 = GepCsoportMaker(15, 3, gcs5);
+
+            gcs1.kovetkezofolyamat = gcs2;
+            gcs2.kovetkezofolyamat = gcs3;
+            gcs3.kovetkezofolyamat = gcs4;
+            gcs4.kovetkezofolyamat = gcs5;
+            gcs5.kovetkezofolyamat = gcs6;
+
+            gcs1.Kezdes(db);
+        }
+
+        public void SB(int db)
+        {
+            gcs1 = GepCsoportMaker(6, 6, null);
+
+            gcs2 = GepCsoportMaker(15, 2, gcs1);
+
+            gcs3 = GepCsoportMaker(10, 3, gcs2);
+
+            gcs4 = GepCsoportMaker(5, 1, gcs3);
+
+            gcs5 = GepCsoportMaker(15, 4, gcs4);
+
+            gcs6 = GepCsoportMaker(12, 3, gcs5);
+
+            gcs1.kovetkezofolyamat = gcs2;
+            gcs2.kovetkezofolyamat = gcs3;
+            gcs3.kovetkezofolyamat = gcs4;
+            gcs4.kovetkezofolyamat = gcs5;
+            gcs5.kovetkezofolyamat = gcs6;
+
+            gcs1.Kezdes(db);
+        }
+
         // csak debuggolás
         public void Kiir()
         {

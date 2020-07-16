@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,10 @@ namespace dssgyak
         
         static void Main(string[] args)
         {
+            
             Folyamat f = new Folyamat();
 
-            f.GYB(18);
+            f.GYB(17);
 
             f.Kiir();
 
