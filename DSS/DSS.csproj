@@ -95,9 +95,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\Folyamat.cs" />
-    <Compile Include="App_Code\Gep.cs" />
-    <Compile Include="App_Code\GepCsoport.cs" />
+    <Compile Include="App_Code\Processor.cs" />
+    <Compile Include="App_Code\Machine.cs" />
+    <Compile Include="App_Code\MachineGroup.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,7 +105,7 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\Megrendeles.cs" />
+    <Compile Include="App_Code\Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
