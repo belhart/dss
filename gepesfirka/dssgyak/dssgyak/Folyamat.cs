@@ -15,11 +15,16 @@ namespace dssgyak
         GepCsoport gcs4;
         GepCsoport gcs5;
         GepCsoport gcs6;
+        List<Megrendeles> megrendeles;
 
 
-        public Folyamat()
+        public Folyamat(string CSVFile)
         {
             
+        }
+        public Folyamat()
+        {
+
         }
 
         // csak szépítés 
