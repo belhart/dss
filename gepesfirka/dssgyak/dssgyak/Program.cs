@@ -12,16 +12,12 @@ namespace dssgyak
         
         static void Main(string[] args)
         {
-            Stopwatch s = new Stopwatch();
-            s.Start();
+            
             Folyamat f = new Folyamat();
 
-            f.GYB(1000*30);
+            f.GYB(17);
 
-            s.Stop();
             f.Kiir();
-
-            Console.WriteLine("++++++++++++++" + s.ElapsedMilliseconds);
            
             Console.ReadKey();
         }
