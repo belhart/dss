@@ -28,9 +28,9 @@ namespace DSS
                     System.Diagnostics.Debug.WriteLine(row);
                     Folyamat folyamat = new Folyamat();
                     Megrendeles megrendelesTeszt = new Megrendeles(row.Split(','));
-                    if (megrendelesTeszt.MegrendelesTipus == 0) {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); break; }
-                    if (megrendelesTeszt.MegrendelesTipus == 1) {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); break; }
-                    else {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); break; }
+                    if (megrendelesTeszt.MegrendelesTipus == 0) {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); folyamat.Kiir(); break; }
+                    if (megrendelesTeszt.MegrendelesTipus == 1) {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); folyamat.Kiir(); break; }
+                    else {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); folyamat.Kiir(); break; }
 
                 }
                 break;

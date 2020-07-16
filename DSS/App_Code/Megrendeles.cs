@@ -19,12 +19,12 @@ namespace DSS
 
         public Megrendeles(string[] line)
         {
-            _ = line[0] == null ? this.MegrendelesID = line[0] : this.MegrendelesID = RandomString(10);
-            _ = line[1] == null ? this.MegrendelesTipus = int.Parse(line[1]) : this.MegrendelesTipus = 0; // teljes rendelés kihagyás mert nem biztos mit akar a vevő?
-            _ = line[2] == null ? this.MegrendelesSzam = int.Parse(line[2]) : this.MegrendelesSzam = 0; // teljes rendelés kihagyás mert nem biztos mit akar a vevő?
-            _ = line[3] == null ? this.Hatarido = DateTime.Now : DateTime.Now; //rendesen parsolni a szövegből
-            _ = line[4] == null ? this.ProfitPerDB = int.Parse(line[4]) : this.ProfitPerDB = 0;
-            _ = line[5] == null ? this.Buntetes = int.Parse(line[5]) : this.Buntetes = 0;
+            _ = line[0] != null ? this.MegrendelesID = line[0] : this.MegrendelesID = RandomString(10);
+            _ = line[1] != null ? this.MegrendelesTipus = int.Parse(line[1]) : this.MegrendelesTipus = 0; // teljes rendelés kihagyás mert nem biztos mit akar a vevő?
+            _ = line[2] != null ? this.MegrendelesSzam = int.Parse(line[2]) : this.MegrendelesSzam = 0; // teljes rendelés kihagyás mert nem biztos mit akar a vevő?
+            _ = line[3] != null ? this.Hatarido = DateTime.Now : DateTime.Now; //rendesen parsolni a szövegből
+            _ = line[4] != null ? this.ProfitPerDB = int.Parse(line[4]) : this.ProfitPerDB = 0;
+            _ = line[5] != null ? this.Buntetes = int.Parse(line[5]) : this.Buntetes = 0;
         }
 
         public static string RandomString(int length)
