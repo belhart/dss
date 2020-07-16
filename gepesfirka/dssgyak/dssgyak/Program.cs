@@ -16,7 +16,7 @@ namespace dssgyak
             f.GYB(18);
 
             f.Kiir();
-           
+
             Console.ReadKey();
         }
     }
