@@ -8,34 +8,34 @@ using System.Threading.Tasks;
 
 namespace DSS
 {
-    class GepCsoport
+    class MachinesGroup
     {
-        public List<Gep> gepek;
-        public GepCsoport elozofolyamat;
-        public GepCsoport kovetkezofolyamat;
+        public List<Machine> machines;
+        public MachinesGroup perviousProcess;
+        public MachinesGroup nextProcess;
 
 
-        public GepCsoport(GepCsoport elozofolyamat)
+        public MachinesGroup(MachinesGroup perviousProcess)
         {
-            gepek = new List<Gep>();
-            this.elozofolyamat = elozofolyamat;
+            machines = new List<Machine>();
+            this.perviousProcess = perviousProcess;
 
         }
 
         //csak a legelső gépnél kell
-        public void Kezdes(int mennyit)
+        public void Start(int mennyit)
         {
-            if (elozofolyamat == null)
+            if (perviousProcess == null)
             {
                 for (int i = 0; i < mennyit; i++)
                 {
-                    Gep g = gepek.FirstOrDefault(x => x.naplo.Count == gepek.Min(y => y.naplo.Count));
-                    g.naplo.Add(g.ido * g.hanyadikmenet);
+                    Machine g = machines.FirstOrDefault(x => x.naplo.Count == machines.Min(y => y.naplo.Count));
+                    g.naplo.Add(g.time * g.hanyadikmenet);
                     g.hanyadikmenet++;
-                    if (kovetkezofolyamat != null)
+                    if (nextProcess != null)
                     {
                         //amint kész továbbpasszolja a cuccot
-                        kovetkezofolyamat.Dolgozik(g);
+                        nextProcess.Working(g);
                     }
 
                 }
@@ -43,10 +43,10 @@ namespace DSS
         }
 
 
-        void Dolgozik(Gep kapottgep)
+        void Working(Machine kapottgep)
         {
             // mindig az a gép ami kevesebbet dolgozott
-            Gep g = gepek.FirstOrDefault(x => x.naplo.Count == gepek.Min(y => y.naplo.Count));
+            Machine g = machines.FirstOrDefault(x => x.naplo.Count == machines.Min(y => y.naplo.Count));
 
             //előző folyamathoz képest
             int eltolodas = kapottgep.naplo.Max();
@@ -54,30 +54,30 @@ namespace DSS
             // ezt meg én se értem
             if (((g.naplo.Count() != 0) ? g.naplo.Max() : 0) > eltolodas)
             {
-                g.naplo.Add(g.naplo.Max() + g.ido);
+                g.naplo.Add(g.naplo.Max() + g.time);
             }
             else
             {
-                g.naplo.Add(eltolodas + (g.ido));
+                g.naplo.Add(eltolodas + (g.time));
             }
 
 
             g.hanyadikmenet++;
             // ha kell itt is továbbpasszol
-            if (kovetkezofolyamat != null)
+            if (nextProcess != null)
             {
-                kovetkezofolyamat.Dolgozik(g);
+                nextProcess.Working(g);
             }
 
         }
 
 
         // csak debuggolás 
-        public void Adatok()
+        public void Data()
         {
             System.Diagnostics.Debug.WriteLine('\n');
             int i = 1;
-            foreach (var item in gepek)
+            foreach (var item in machines)
             {
                 System.Diagnostics.Debug.WriteLine("gep" + i);
                 i++;

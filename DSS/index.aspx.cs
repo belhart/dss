@@ -26,11 +26,11 @@ namespace DSS
                 if (!string.IsNullOrEmpty(row))
                 {
                     System.Diagnostics.Debug.WriteLine(row);
-                    Folyamat folyamat = new Folyamat();
-                    Megrendeles megrendelesTeszt = new Megrendeles(row.Split(','));
-                    if (megrendelesTeszt.MegrendelesTipus == 0) {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); folyamat.Kiir(); break; }
-                    if (megrendelesTeszt.MegrendelesTipus == 1) {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); folyamat.Kiir(); break; }
-                    else {folyamat.GYB(megrendelesTeszt.MegrendelesSzam); folyamat.Kiir(); break; }
+                    Processor folyamat = new Processor();
+                    Order megrendelesTeszt = new Order(row.Split(','));
+                    if (megrendelesTeszt.OrderType == 0) {folyamat.GYB(megrendelesTeszt.OrderAmount); folyamat.Kiir(); break; }
+                    if (megrendelesTeszt.OrderType == 1) {folyamat.GYB(megrendelesTeszt.OrderAmount); folyamat.Kiir(); break; }
+                    else {folyamat.GYB(megrendelesTeszt.OrderAmount); folyamat.Kiir(); break; }
 
                 }
                 break;

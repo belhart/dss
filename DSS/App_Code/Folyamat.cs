@@ -7,33 +7,33 @@ using System.Threading.Tasks;
 
 namespace DSS
 {
-    class Folyamat
+    class Processor
     {
-        GepCsoport gcs1;
-        GepCsoport gcs2;
-        GepCsoport gcs3;
-        GepCsoport gcs4;
-        GepCsoport gcs5;
-        GepCsoport gcs6;
-        List<Megrendeles> megrendeles;
+        MachinesGroup MachineGroup1;
+        MachinesGroup MachineGroup2;
+        MachinesGroup MachineGroup3;
+        MachinesGroup MachineGroup4;
+        MachinesGroup MachineGroup5;
+        MachinesGroup MachineGroup6;
+        List<Order> orders;
 
 
-        public Folyamat(string CSVFile)
+        public Processor(string CSVFile)
         {
 
         }
-        public Folyamat()
+        public Processor()
         {
 
         }
 
         // csak szépítés 
-        GepCsoport GepCsoportMaker(int ido, int gepekszama, GepCsoport elozo)
+        MachinesGroup MachinesGroupMaker(int time, int machineNumber, MachinesGroup pervious)
         {
-            GepCsoport gcs = new GepCsoport(elozo);
-            for (int i = 0; i < gepekszama; i++)
+            MachinesGroup gcs = new MachinesGroup(pervious);
+            for (int i = 0; i < machineNumber; i++)
             {
-                gcs.gepek.Add(new Gep(ido));
+                gcs.machines.Add(new Machine(time));
             }
             return gcs;
 
@@ -43,73 +43,73 @@ namespace DSS
         public void GYB(int db)
         {
 
-            gcs1 = GepCsoportMaker(5, 6, null);
+            MachineGroup1 = MachinesGroupMaker(5, 6, null);
 
-            gcs2 = GepCsoportMaker(10, 2, gcs1);
+            MachineGroup2 = MachinesGroupMaker(10, 2, MachineGroup1);
 
-            gcs3 = GepCsoportMaker(8, 3, gcs2);
+            MachineGroup3 = MachinesGroupMaker(8, 3, MachineGroup2);
 
-            gcs4 = GepCsoportMaker(5, 1, gcs3);
+            MachineGroup4 = MachinesGroupMaker(5, 1, MachineGroup3);
 
-            gcs5 = GepCsoportMaker(12, 4, gcs4);
+            MachineGroup5 = MachinesGroupMaker(12, 4, MachineGroup4);
 
-            gcs6 = GepCsoportMaker(10, 3, gcs5);
+            MachineGroup6 = MachinesGroupMaker(10, 3, MachineGroup5);
 
-            gcs1.kovetkezofolyamat = gcs2;
-            gcs2.kovetkezofolyamat = gcs3;
-            gcs3.kovetkezofolyamat = gcs4;
-            gcs4.kovetkezofolyamat = gcs5;
-            gcs5.kovetkezofolyamat = gcs6;
+            MachineGroup1.nextProcess = MachineGroup2;
+            MachineGroup2.nextProcess = MachineGroup3;
+            MachineGroup3.nextProcess = MachineGroup4;
+            MachineGroup4.nextProcess = MachineGroup5;
+            MachineGroup5.nextProcess = MachineGroup6;
 
-            gcs1.Kezdes(db);
+            MachineGroup1.Start(db);
 
 
         }
 
         public void FB(int db)
         {
-            gcs1 = GepCsoportMaker(8, 6, null);
+            MachineGroup1 = MachinesGroupMaker(8, 6, null);
 
-            gcs2 = GepCsoportMaker(16, 2, gcs1);
+            MachineGroup2 = MachinesGroupMaker(16, 2, MachineGroup1);
 
-            gcs3 = GepCsoportMaker(12, 3, gcs2);
+            MachineGroup3 = MachinesGroupMaker(12, 3, MachineGroup2);
 
-            gcs4 = GepCsoportMaker(5, 1, gcs3);
+            MachineGroup4 = MachinesGroupMaker(5, 1, MachineGroup3);
 
-            gcs5 = GepCsoportMaker(20, 4, gcs4);
+            MachineGroup5 = MachinesGroupMaker(20, 4, MachineGroup4);
 
-            gcs6 = GepCsoportMaker(15, 3, gcs5);
+            MachineGroup6 = MachinesGroupMaker(15, 3, MachineGroup5);
 
-            gcs1.kovetkezofolyamat = gcs2;
-            gcs2.kovetkezofolyamat = gcs3;
-            gcs3.kovetkezofolyamat = gcs4;
-            gcs4.kovetkezofolyamat = gcs5;
-            gcs5.kovetkezofolyamat = gcs6;
+            MachineGroup1.nextProcess = MachineGroup2;
+            MachineGroup2.nextProcess = MachineGroup3;
+            MachineGroup3.nextProcess = MachineGroup4;
+            MachineGroup4.nextProcess = MachineGroup5;
+            MachineGroup5.nextProcess = MachineGroup6;
 
-            gcs1.Kezdes(db);
+            MachineGroup1.Start(db);
         }
 
         public void SB(int db)
         {
-            gcs1 = GepCsoportMaker(6, 6, null);
+            MachineGroup1 = MachinesGroupMaker(6, 6, null);
 
-            gcs2 = GepCsoportMaker(15, 2, gcs1);
+            MachineGroup2 = MachinesGroupMaker(15, 2, MachineGroup1);
 
-            gcs3 = GepCsoportMaker(10, 3, gcs2);
+            MachineGroup3 = MachinesGroupMaker(10, 3, MachineGroup2);
 
-            gcs4 = GepCsoportMaker(5, 1, gcs3);
+            MachineGroup4 = MachinesGroupMaker(5, 1, MachineGroup3);
 
-            gcs5 = GepCsoportMaker(15, 4, gcs4);
+            MachineGroup5 = MachinesGroupMaker(15, 4, MachineGroup4);
 
-            gcs6 = GepCsoportMaker(12, 3, gcs5);
+            MachineGroup6 = MachinesGroupMaker(12, 3, MachineGroup5);
 
-            gcs1.kovetkezofolyamat = gcs2;
-            gcs2.kovetkezofolyamat = gcs3;
-            gcs3.kovetkezofolyamat = gcs4;
-            gcs4.kovetkezofolyamat = gcs5;
-            gcs5.kovetkezofolyamat = gcs6;
+            MachineGroup1.nextProcess = MachineGroup2;
+            MachineGroup2.nextProcess = MachineGroup3;
+            MachineGroup3.nextProcess = MachineGroup4;
+            MachineGroup4.nextProcess = MachineGroup5;
+            MachineGroup5.nextProcess = MachineGroup6;
 
-            gcs1.Kezdes(db);
+            MachineGroup1.Start(db);
         }
 
         // csak debuggolás
@@ -117,17 +117,17 @@ namespace DSS
         {
 
             System.Diagnostics.Debug.WriteLine("1---------------------------------1");
-            gcs1.Adatok();
+            MachineGroup1.Data();
             System.Diagnostics.Debug.WriteLine("2---------------------------------2");
-            gcs2.Adatok();
+            MachineGroup2.Data();
             System.Diagnostics.Debug.WriteLine("3---------------------------------3");
-            gcs3.Adatok();
+            MachineGroup3.Data();
             System.Diagnostics.Debug.WriteLine("4---------------------------------4");
-            gcs4.Adatok();
+            MachineGroup4.Data();
             System.Diagnostics.Debug.WriteLine("5---------------------------------5");
-            gcs5.Adatok();
+            MachineGroup5.Data();
             System.Diagnostics.Debug.WriteLine("6---------------------------------6");
-            gcs6.Adatok();
+            MachineGroup6.Data();
         }
 
 

@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace DSS
 {
-    class Gep
+    class Machine
     {
         public int hanyadikmenet = 1;
 
         // mikor fejezte be a termékeket
         public List<int> naplo;
         // mennyi idő alatt csinál 1et
-        public int ido;
+        public int time;
 
 
-        public Gep(int ido)
+        public Machine(int time)
         {
             naplo = new List<int>();
-            this.ido = ido;
+            this.time = time;
         }
     }
 }

@@ -7,24 +7,24 @@ using System.Threading.Tasks;
 
 namespace DSS
 {
-    public class Megrendeles
+    public class Order
     {
-        public string MegrendelesID { get; set; }
-        public int MegrendelesTipus { get; set; } // 0 GYB, 1 FB, 2 SB
-        public int MegrendelesSzam { get; set; }
-        public DateTime Hatarido { get; set; }
-        public int ProfitPerDB { get; set; }
-        public int Buntetes { get; set; }
+        public string OrderID { get; set; }
+        public int OrderType { get; set; } // 0 GYB, 1 FB, 2 SB
+        public int OrderAmount { get; set; }
+        public DateTime Deadline { get; set; }
+        public int ProfitPerUnit { get; set; }
+        public int Penalty { get; set; }
         private static Random random = new Random();
 
-        public Megrendeles(string[] line)
+        public Order(string[] line)
         {
-            _ = line[0] != null ? this.MegrendelesID = line[0] : this.MegrendelesID = RandomString(10);
-            _ = line[1] != null ? this.MegrendelesTipus = int.Parse(line[1]) : this.MegrendelesTipus = 0; // teljes rendelés kihagyás mert nem biztos mit akar a vevő?
-            _ = line[2] != null ? this.MegrendelesSzam = int.Parse(line[2]) : this.MegrendelesSzam = 0; // teljes rendelés kihagyás mert nem biztos mit akar a vevő?
-            _ = line[3] != null ? this.Hatarido = DateTime.Now : DateTime.Now; //rendesen parsolni a szövegből
-            _ = line[4] != null ? this.ProfitPerDB = int.Parse(line[4]) : this.ProfitPerDB = 0;
-            _ = line[5] != null ? this.Buntetes = int.Parse(line[5]) : this.Buntetes = 0;
+            _ = line[0] != null ? this.OrderID = line[0] : this.OrderID = RandomString(10);
+            _ = line[1] != null ? this.OrderType = int.Parse(line[1]) : this.OrderType = 0; // teljes rendelés kihagyás mert nem biztos mit akar a vevő?
+            _ = line[2] != null ? this.OrderAmount = int.Parse(line[2]) : this.OrderAmount = 0; // teljes rendelés kihagyás mert nem biztos mit akar a vevő?
+            _ = line[3] != null ? this.Deadline = DateTime.Now : DateTime.Now; //rendesen parsolni a szövegből
+            _ = line[4] != null ? this.ProfitPerUnit = int.Parse(line[4]) : this.ProfitPerUnit = 0;
+            _ = line[5] != null ? this.Penalty = int.Parse(line[5]) : this.Penalty = 0;
         }
 
         public static string RandomString(int length)
