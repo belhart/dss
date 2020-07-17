@@ -16,7 +16,7 @@ namespace dssgyak
             Folyamat f = new Folyamat();
 
             f.GYB(17);
-
+            f.GYB(10);
             f.Kiir();
            
             Console.ReadKey();
