@@ -9,6 +9,7 @@ namespace dssgyak
 {
     class Folyamat
     {
+        #region machines
         GepCsoport gcs1;
         GepCsoport gcs2;
         GepCsoport gcs3;
@@ -42,12 +43,8 @@ namespace dssgyak
         Gep packer2;
         Gep packer3;
 
-
-        public Folyamat(string CSVFile)
-        {
-            
-        }
-        public Folyamat()
+        #endregion
+        void Hierarchy()
         {
             gcs1 = new GepCsoport(null);
             gcs2 = new GepCsoport(gcs1);
@@ -113,6 +110,17 @@ namespace dssgyak
             gcs6.gepek.Add(packer1);
             gcs6.gepek.Add(packer2);
             gcs6.gepek.Add(packer3);
+        }
+        public Folyamat(string CSVFile)
+        {
+            Hierarchy();
+        }
+
+
+        public Folyamat()
+        {
+            
+           
 
         }
 
