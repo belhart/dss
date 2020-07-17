@@ -13,12 +13,13 @@ namespace dssgyak
         static void Main(string[] args)
         {
             
+            //Folyamat f = new Folyamat(CSVFile); // majd ez a rendes programban
             Folyamat f = new Folyamat();
 
             f.GYB(17);
             f.GYB(10);
             f.Kiir();
-           
+
             Console.ReadKey();
         }
     }

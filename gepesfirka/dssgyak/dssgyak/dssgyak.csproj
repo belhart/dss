@@ -46,6 +46,7 @@
     <Compile Include="Folyamat.cs" />
     <Compile Include="Gep.cs" />
     <Compile Include="GepCsoport.cs" />
+    <Compile Include="Megrendeles.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
