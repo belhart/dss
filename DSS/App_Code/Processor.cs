@@ -15,7 +15,7 @@ namespace DSS
         MachinesGroup MachineGroup4;
         MachinesGroup MachineGroup5;
         MachinesGroup MachineGroup6;
-        List<Order> orders;
+        public List<Order> orders;
 
 
         public Processor(string CSVFile)
@@ -24,7 +24,7 @@ namespace DSS
         }
         public Processor()
         {
-
+            this.orders = new List<Order>();
         }
 
         // csak szépítés 
