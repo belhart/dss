@@ -37,6 +37,7 @@ namespace dssgyak
                         //amint kész továbbpasszolja a cuccot
                         kovetkezofolyamat.Dolgozik(g);
                     }
+                   
 
                 }
             }
@@ -79,7 +80,7 @@ namespace dssgyak
             int i = 1;
             foreach (var item in gepek)
             {
-                Console.WriteLine("gep"+i);
+                Console.WriteLine(item.name);
                 i++;
                 foreach (var item2 in item.naplo)
                 {

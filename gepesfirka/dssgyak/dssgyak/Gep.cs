@@ -14,12 +14,13 @@ namespace dssgyak
         public List<int> naplo;
         // mennyi idő alatt csinál 1et
         public int ido;
+        public string name;
         
 
-        public Gep(int ido)
+        public Gep()
         {
             naplo = new List<int>();
-            this.ido = ido;
+            
         }
     }
 }

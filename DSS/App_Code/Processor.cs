@@ -113,7 +113,7 @@ namespace DSS
         }
 
         // csak debuggolás
-        public void Kiir()
+        public void WriteOut()
         {
 
             System.Diagnostics.Debug.WriteLine("1---------------------------------1");

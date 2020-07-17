@@ -17,6 +17,31 @@ namespace dssgyak
         GepCsoport gcs6;
         List<Megrendeles> megrendeles;
 
+        Gep cutter1;
+        Gep cutter2;
+        Gep cutter3;
+        Gep cutter4;
+        Gep cutter5;
+        Gep cutter6;
+
+        Gep bender1;
+        Gep bender2;
+
+        Gep welder1;
+        Gep welder2;
+        Gep welder3;
+
+        Gep tester1;
+
+        Gep painter1;
+        Gep painter2;
+        Gep painter3;
+        Gep painter4;
+
+        Gep packer1;
+        Gep packer2;
+        Gep packer3;
+
 
         public Folyamat(string CSVFile)
         {
@@ -24,92 +49,139 @@ namespace dssgyak
         }
         public Folyamat()
         {
+            gcs1 = new GepCsoport(null);
+            gcs2 = new GepCsoport(gcs1);
+            gcs3 = new GepCsoport(gcs2);
+            gcs4 = new GepCsoport(gcs3);
+            gcs5 = new GepCsoport(gcs4);
+            gcs6 = new GepCsoport(gcs5);
+
+            gcs1.kovetkezofolyamat = gcs2;
+            gcs2.kovetkezofolyamat = gcs3;
+            gcs3.kovetkezofolyamat = gcs4;
+            gcs4.kovetkezofolyamat = gcs5;
+            gcs5.kovetkezofolyamat = gcs6;
+
+
+
+            cutter1 = new Gep();
+            cutter2 = new Gep();
+            cutter3 = new Gep();
+            cutter4 = new Gep();
+            cutter5 = new Gep();
+            cutter6 = new Gep();
+
+            gcs1.gepek.Add(cutter1);
+            gcs1.gepek.Add(cutter2);
+            gcs1.gepek.Add(cutter3);
+            gcs1.gepek.Add(cutter4);
+            gcs1.gepek.Add(cutter5);
+            gcs1.gepek.Add(cutter6);
+
+            bender1 = new Gep();
+            bender2 = new Gep();
+
+            gcs2.gepek.Add(bender1);
+            gcs2.gepek.Add(bender2);
+
+            welder1 = new Gep();
+            welder2 = new Gep();
+            welder3 = new Gep();
+
+            gcs3.gepek.Add(welder1);
+            gcs3.gepek.Add(welder2);
+            gcs3.gepek.Add(welder3);
+
+            tester1 = new Gep();
+
+            gcs4.gepek.Add(tester1);
+
+            painter1 = new Gep();
+            painter2 = new Gep();
+            painter3 = new Gep();
+            painter4 = new Gep();
+
+            gcs5.gepek.Add(painter1);
+            gcs5.gepek.Add(painter2);
+            gcs5.gepek.Add(painter3);
+            gcs5.gepek.Add(painter4);
+
+            packer1 = new Gep();
+            packer2 = new Gep();
+            packer3 = new Gep();
+
+            gcs6.gepek.Add(packer1);
+            gcs6.gepek.Add(packer2);
+            gcs6.gepek.Add(packer3);
 
         }
 
-        // csak szépítés 
-        GepCsoport GepCsoportMaker(int ido,int gepekszama,GepCsoport elozo)
+        void MachineSetUp(int firsttime, int secondtime, int thirdtime, int fourthtime, int fifthtime, int sixthtime)
         {
-            GepCsoport gcs = new GepCsoport(elozo);
-            for (int i = 0; i < gepekszama; i++)
+            foreach (var item in gcs1.gepek)
             {
-                gcs.gepek.Add(new Gep(ido));
+                item.ido = firsttime;
             }
-            return gcs;
+
+            foreach (var item in gcs2.gepek)
+            {
+                item.ido = secondtime;
+            }
+
+            foreach (var item in gcs3.gepek)
+            {
+                item.ido = thirdtime;
+            }
+
+            foreach (var item in gcs4.gepek)
+            {
+                item.ido = fourthtime;
+            }
+
+            foreach (var item in gcs5.gepek)
+            {
+                item.ido = fifthtime;
+            }
+
+            foreach (var item in gcs6.gepek)
+            {
+                item.ido = sixthtime;
+            }
+
+           
+
 
 
         }
 
-        public void GYB(int db)
+        public int GYB(int db)
         {
-            
-             gcs1 =  GepCsoportMaker(5, 6, null);
 
-             gcs2 = GepCsoportMaker(10, 2, gcs1);
-
-             gcs3 = GepCsoportMaker(8, 3, gcs2);
-
-             gcs4 = GepCsoportMaker(5, 1, gcs3);
-
-             gcs5 = GepCsoportMaker(12, 4, gcs4);
-
-             gcs6 = GepCsoportMaker(10, 3, gcs5);
-
-            gcs1.kovetkezofolyamat = gcs2;
-            gcs2.kovetkezofolyamat = gcs3;
-            gcs3.kovetkezofolyamat = gcs4;
-            gcs4.kovetkezofolyamat = gcs5;
-            gcs5.kovetkezofolyamat = gcs6;
+            MachineSetUp(5, 10, 8, 5, 12, 10);
 
             gcs1.Kezdes(db);
+            return gcs6.gepek.FirstOrDefault(x => x.naplo.Max() == gcs6.gepek.Max(y => y.naplo.Max())).naplo.Max();
 
 
         }
 
-        public void FB(int db)
+        public int FB(int db)
         {
-            gcs1 = GepCsoportMaker(8, 6, null);
-
-            gcs2 = GepCsoportMaker(16, 2, gcs1);
-
-            gcs3 = GepCsoportMaker(12, 3, gcs2);
-
-            gcs4 = GepCsoportMaker(5, 1, gcs3);
-
-            gcs5 = GepCsoportMaker(20, 4, gcs4);
-
-            gcs6 = GepCsoportMaker(15, 3, gcs5);
-
-            gcs1.kovetkezofolyamat = gcs2;
-            gcs2.kovetkezofolyamat = gcs3;
-            gcs3.kovetkezofolyamat = gcs4;
-            gcs4.kovetkezofolyamat = gcs5;
-            gcs5.kovetkezofolyamat = gcs6;
+            MachineSetUp(8, 16, 12, 5, 20, 15);
 
             gcs1.Kezdes(db);
+
+            return gcs6.gepek.FirstOrDefault(x => x.naplo.Max() == gcs6.gepek.Max(y => y.naplo.Max())).naplo.Max();
+
         }
 
-        public void SB(int db)
+        public int SB(int db)
         {
-            gcs1 = GepCsoportMaker(6, 6, null);
-
-            gcs2 = GepCsoportMaker(15, 2, gcs1);
-
-            gcs3 = GepCsoportMaker(10, 3, gcs2);
-
-            gcs4 = GepCsoportMaker(5, 1, gcs3);
-
-            gcs5 = GepCsoportMaker(15, 4, gcs4);
-
-            gcs6 = GepCsoportMaker(12, 3, gcs5);
-
-            gcs1.kovetkezofolyamat = gcs2;
-            gcs2.kovetkezofolyamat = gcs3;
-            gcs3.kovetkezofolyamat = gcs4;
-            gcs4.kovetkezofolyamat = gcs5;
-            gcs5.kovetkezofolyamat = gcs6;
+            MachineSetUp(6, 15, 10, 5, 15, 12);
 
             gcs1.Kezdes(db);
+
+            return gcs6.gepek.FirstOrDefault(x => x.naplo.Max() == gcs6.gepek.Max(y => y.naplo.Max())).naplo.Max();
         }
 
         // csak debuggolás

@@ -16,9 +16,13 @@ namespace dssgyak
             //Folyamat f = new Folyamat(CSVFile); // majd ez a rendes programban
             Folyamat f = new Folyamat();
 
-            f.GYB(17);
+            int a = f.GYB(13);
+            int b = f.SB(15);
+            f.FB(20);
 
             f.Kiir();
+
+            Console.WriteLine(a + " " + b);
 
             Console.ReadKey();
         }
