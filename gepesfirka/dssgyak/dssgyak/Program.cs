@@ -16,13 +16,12 @@ namespace dssgyak
             //Folyamat f = new Folyamat(CSVFile); // majd ez a rendes programban
             Folyamat f = new Folyamat();
 
-            int a = f.GYB(13);
-            int b = f.SB(15);
-            f.FB(20);
+            DateTime d = new DateTime(2020, 7, 18, 18, 0, 0);
 
-            f.Kiir();
+            double dd = (d - DateTime.Now).TotalDays;
 
-            Console.WriteLine(a + " " + b);
+
+            Console.WriteLine(dd);
 
             Console.ReadKey();
         }

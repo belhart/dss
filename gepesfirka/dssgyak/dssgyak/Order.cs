@@ -9,6 +9,10 @@ namespace dssgyak
 {
     public class Order
     {
+        public int fullprize;
+        public double minutesleft;
+
+
         public string OrderID { get; set; }
         public int OrderType { get; set; } // 0 GYB, 1 FB, 2 SB
         public int OrderAmount { get; set; }
@@ -25,6 +29,9 @@ namespace dssgyak
             _ = line[3] != null ? this.Deadline = DateTime.Now : DateTime.Now; //rendesen parsolni a szövegből
             _ = line[4] != null ? this.ProfitPerUnit = int.Parse(line[4]) : this.ProfitPerUnit = 0;
             _ = line[5] != null ? this.Penalty = int.Parse(line[5]) : this.Penalty = 0;
+
+            fullprize = ProfitPerUnit * OrderAmount;
+            minutesleft = (Deadline - DateTime.Now).TotalMinutes;  // hátralevő percek (nem vagyok hajlandó dátumokkal számolni)
         }
 
         public static string RandomString(int length)
