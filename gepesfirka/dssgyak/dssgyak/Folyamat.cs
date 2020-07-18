@@ -243,6 +243,35 @@ namespace dssgyak
             gcs6.Adatok();
         }
 
+        public void ClearLogs()
+        {
+            Logs.Clear();
+            foreach (var item in gcs1.gepek)
+            {
+                item.naplo.Clear();
+            }
+            foreach (var item in gcs2.gepek)
+            {
+                item.naplo.Clear();
+            }
+            foreach (var item in gcs3.gepek)
+            {
+                item.naplo.Clear();
+            }
+            foreach (var item in gcs4.gepek)
+            {
+                item.naplo.Clear();
+            }
+            foreach (var item in gcs5.gepek)
+            {
+                item.naplo.Clear();
+            }
+            foreach (var item in gcs6.gepek)
+            {
+                item.naplo.Clear();
+            }
+        }
+
         
 
        

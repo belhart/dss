@@ -12,16 +12,11 @@ namespace dssgyak
         
         static void Main(string[] args)
         {
-            
+
             //Folyamat f = new Folyamat(CSVFile); // majd ez a rendes programban
-            Folyamat f = new Folyamat();
-
-            DateTime d = new DateTime(2020, 7, 18, 18, 0, 0);
-
-            double dd = (d - DateTime.Now).TotalDays;
-
-
-            Console.WriteLine(dd);
+            AllOrder ao = new AllOrder();
+            ao.OneOrderValue(ao.orders.First());
+            ao.Show(ao.orders.First());
 
             Console.ReadKey();
         }
