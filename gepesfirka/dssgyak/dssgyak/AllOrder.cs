@@ -42,6 +42,7 @@ namespace dssgyak
                 o.fulltime = f.SB(o.OrderAmount);
             }
 
+
             double def = o.minutesleft - o.fulltime;
 
             double d = 0;
